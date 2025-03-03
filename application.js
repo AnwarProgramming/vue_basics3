@@ -35,7 +35,25 @@ Vue.component('message-board', {
         count: function () {
             return this.messages.length; // This will return length of the visitors array
         }
-    }
+    },
+    beforeCreate: function(){
+        console.log("component beforeCreate");
+    },
+    created: function(){
+        console.log("component created");
+    },
+    beforeMount: function() {
+        console.log("component beforemount");
+    },
+    mounted: function() {
+        console.log("component mounted");
+    },
+    beforeUpdate: function() {
+        console.log("component beforeUpdate");
+    },
+    updated: function() {
+        console.log("component updated");
+    },
 })
 
 
@@ -48,5 +66,28 @@ var app = new Vue({
         count_global: function(){
             this.global_count += 1;
         }
-    }
+    },
+    beforeCreate: function(){
+        console.log("app beforeCreate");
+        console.log(this.global_count);
+    },
+    created: function(){
+        console.log("app created");
+        console.log(this.global_count);
+    },
+    beforeMount: function() {
+        console.log("app beforemount");
+    },
+    mounted: function() {
+        // fetch data from backend(most of the poeple fetch data here)
+        console.log("app mounted");
+        console.log(this.$el);
+    },
+    beforeUpdate: function() {
+        console.log("app beforeUpdate");
+    },
+    updated: function() {
+        console.log("app updated");
+    },
+
 })
